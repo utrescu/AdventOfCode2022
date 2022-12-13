@@ -15,16 +15,16 @@ func main() {
 		panic("File read failed")
 	}
 
-	fmt.Println("Part 1:", Part1(commands))
+	fmt.Println("Part 1:", Part1(commands, 100000))
 
 	fmt.Println("Part 2:", Part2(commands, 70000000, 30000000))
 }
 
-func Part1(commands map[string]*Dir) int {
+func Part1(commands map[string]*Dir, maxSize int) int {
 	part1 := 0
 
 	for _, v := range commands {
-		if v.Size() <= 100000 {
+		if v.Size() <= maxSize {
 			part1 += v.Size()
 		}
 	}
@@ -49,7 +49,7 @@ func Part2(commands map[string]*Dir, maxSpace int, neededSpace int) int {
 	sort.Ints(dirs)
 
 	for _, v := range dirs {
-		if v >= neededSpace - unused {
+		if v >= neededSpace-unused {
 			return v
 		}
 	}
