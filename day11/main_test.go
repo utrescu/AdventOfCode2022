@@ -1,8 +1,8 @@
 package main
 
 import (
-	"testing"
 	"day11/monkey"
+	"testing"
 )
 
 func TestMonkey(t *testing.T) {
@@ -37,9 +37,9 @@ func TestMonkey(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run("Test i", func(t *testing.T) {
-			worry, monkey := tt.input.SendToMonkey(3, 1)
-			if worry != tt.expectedWorry || monkey != tt.expectedMonkey {
-				t.Errorf("Test failed '(worry:%d, monkey:%d)' is not (worry:%d, monkey:%d)", worry, monkey, tt.expectedWorry, tt.expectedMonkey)
+			worry, nextmonkey := tt.input.SendToMonkey(3, 1)
+			if worry != tt.expectedWorry || nextmonkey != tt.expectedMonkey {
+				t.Errorf("Test failed '(worry:%d, monkey:%d)' is not (worry:%d, monkey:%d)", worry, nextmonkey, tt.expectedWorry, tt.expectedMonkey)
 			}
 		})
 	}
